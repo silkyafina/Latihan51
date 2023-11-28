@@ -9,6 +9,7 @@ import java.util.Scanner;
  * Program Studi: Sistem Informasi
  * Semester     : 3
  */
+// membuat super class karyawan
 public class Karyawan {
 // Deklarasi variabel
     protected String nik;
@@ -16,6 +17,7 @@ public class Karyawan {
     protected String jabatan;
     protected int golongan;
     
+// metode getter dan setter untuk mengambil dan mengisi data dalam obyek
     public String getNik(){
         return nik;
     }
@@ -40,13 +42,15 @@ public class Karyawan {
     public void setGolongan(int golongan){
         this.golongan = golongan;
     }
+// membuat sub class manager
 static class Manager extends Karyawan{ 
+// deklarasi variabel
     private int kehadiran;
     private float tunjanganGolongan;
     private float tunjanganJabatan;
     private float tunjanganKehadiran;
     float gajiTotal;
-    
+// metode getter dan setter     
     public int getKehadiran(){
         return kehadiran;
     }
@@ -54,7 +58,7 @@ static class Manager extends Karyawan{
         this.kehadiran = kehadiran;
     }
 
-    // Metode untuk menghitung tunjangan golongan
+// Metode untuk menghitung tunjangan golongan
     public void TunjanganGolongan() {
         switch (golongan) {
             case 1:
@@ -71,7 +75,7 @@ static class Manager extends Karyawan{
         }
     }
 
-    // Metode untuk menghitung tunjangan jabatan
+// Metode untuk menghitung tunjangan jabatan
     public void TunjanganJabatan() {
         if ("Manager".equalsIgnoreCase(jabatan)) {
             tunjanganJabatan = 2000000;
@@ -82,7 +86,7 @@ static class Manager extends Karyawan{
         }
     }
 
-    // Metode untuk menghitung tunjangan kehadiran
+// Metode untuk menghitung tunjangan kehadiran
     public void TunjanganKehadiran() {
         tunjanganKehadiran = kehadiran * 10000;
     }
@@ -110,9 +114,10 @@ static class Manager extends Karyawan{
         System.out.print("Masukkan Jumlah Kehadiran: ");
         int kehadiran = input.nextInt();
 
-// Output
+// Output data
         System.out.println("");
         System.out.println("========== Hasil Perhitungan ========== ");
+// membuat obyek manager 
         Manager manager = new Manager();
         manager.setNik(nik);
         manager.setNama(nama);
